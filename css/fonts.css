@@ -1,0 +1,29 @@
+/* arabic */
+@font-face {
+    font-family: 'MarkaziText-Regular';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/fonts/MarkaziText-Regular.ttf);
+  }
+@font-face {
+    font-family: 'MarkaziText-Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url(/fonts/MarkaziText-Medium.ttf);
+  }
+  @font-face {
+    font-family: 'MarkaziText-SemiBold';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url(/fonts/MarkaziText-SemiBold.ttf);
+  }
+  @font-face {
+    font-family: 'MarkaziText-Bold';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(/fonts/MarkaziText-Bold.ttf);
+  }

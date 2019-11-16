@@ -1,0 +1,165 @@
+
+<!doctype html>
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>صفحة الإدارة - الرئيسية</title>
+
+<link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">صفحة الإدارة</a>
+  <input class="form-control form-control-dark w-100" type="text" placeholder="بحث" aria-label="Search">
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+      <a class="nav-link" href="#">تسجيل الخروج</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a id="homepage" class="nav-link" href="/"><i class="fas fa-home"></i>الرئيسية </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/orders"><i class="fas fa-boxes"></i>الطلبات</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/prodacts"><i class="fas fa-shopping-cart"></i>المنتجات</a>
+          </li>
+          <li class="nav-item">
+            <a id="customerpage" class="nav-link active"><i class="fas fa-users"></i>العملاء</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-scroll"></i>التقارير</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">قائمة العملاء</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group mr-2">
+                <button type="button" class="btn btn-sm btn-outline-secondary Openmodal" data-toggle="modal" data-target="#Addnew">إضافة</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">تحميل</button>
+              </div>
+              <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle"><i class="fas fa-calendar-week"></i>أخر أسبوع</button>
+            </div>
+          </div>
+          <section class="container">
+          <div class="row">
+            <div class="col-lg-12 card">
+                <div class="card-header"><h3>العملاء المضافين</h3></div>
+                <div class="card-body">
+                      <table id="example" class="table table-striped table-bordered" style="width:100%">
+                              <thead>
+                                      <tr>
+                                          <th>الإسم</th>
+                                          <th>رقم الهاتف</th>
+                                          <th>العنوان</th>
+                                          <th>إجرائات</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                          <tr>
+                                              <td>قريبا</td>
+                                              <td>قريبا</td>
+                                              <td>قريبا</td>
+                                              <td><button type="button" id="senddata" class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                                                  <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                                  <button type="button" class="btn btn-warning"><i class="fas fa-users-cog"></i>  </button></td>
+                                          </tr>
+                                  </tbody>
+                      </table>
+                </div>
+            </div>
+          </div>
+          </section>
+    </main>
+  </div>
+</div>
+<script src="plugin/jquery/jquery-3.4.1.js"></script>
+<script src="plugin/bootstrap/js/bootstrap.min.js"></script>
+<script src="plugin/jq_datatable/datatable.min.js"></script>
+<script src="plugin/jq_datatable/databoot.min.js"></script>
+<script src="js/main.js"></script>
+
+    </body>
+</html>
+<!--modale free -->
+<div class="modal" id="Addnew" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">إضافة عميل جديد</h5>
+              <button type="button" class="close closemodal" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                    <form>
+                            <div class="form-row">
+                              <div class="form-group col-md-6">
+                                <label>البريد الإلكتروني</label>
+                                <input type="email" class="form-control" id="UserEmail" placeholder="البريد الإلكتروني">
+                              </div>
+                              <div class="form-group col-md-6">
+                                <label>كلمة المرور</label>
+                                <input type="password" class="form-control" id="UserPass" placeholder="كلمة المرور">
+                              </div>
+                            </div>
+                            <div class="form-row">
+                            <div class="form-group col-md-6">
+                                    <label>إسم العميل</label>
+                                    <div class="input-group mb-2">
+                                      <div class="input-group-prepend">
+                                        <div class="input-group-text">@</div>
+                                      </div>
+                                      <input type="text" class="form-control" id="UserName" placeholder="يجب أن يكون مختلف">
+                                    </div>
+                                  </div>
+                              <div class="form-group col-md-6">
+                                <label>المدينة</label>
+                                <select type='select' id="UserCity" class="form-control">
+                                        <option selected>الرجاء الإختيار</option>
+                                        <option>عمان</option>
+                                        <option>العقية</option>
+                                        <option>عجلون</option>
+                                        <option>الزرقاء</option>
+                                        <option>البقعاء</option>
+                                        <option>البتراء</option>
+                                        <option>البحر الميت</option>
+                                        <option>جرش</option>
+                                        </select>
+                              </div>
+                            </div>
+                            <div class="form-row">
+                              <div class="form-group col-md-6">
+                                <label for="inputZip">رقم الجوال</label>
+                                <input type="number" max="10" class="form-control" id="UserPhone">
+                              </div>
+                              <div class="form-group col-md-12">
+                                    <label>العنوان</label>
+                                    <input type="text" class="form-control" id="UserAddress" placeholder="العنوان التفصيلي لموقع العميل">
+                                  </div>
+                            </div>
+                          </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary closemodal" data-dismiss="modal">إلغاء</button>
+              <button type="button" type="submit" class="btn btn-primary">إضافة</button>
+            </div>
+          </div>
+        </div>
+      </div>
