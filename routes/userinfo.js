@@ -1,8 +1,8 @@
 var express = require('express');
-var router = express.Router();
+var router = express.Router({ mergeParams: true });
 
-router.get('/users/:userId', function(req, res, next) {
-    var reqid = req.params.userid
+router.get('/', function(req, res, next) {
+    var reqid = req.params.userId
     console.log(reqid);
     res.render('userinfo', { title: reqid, jsfile: 'js/Cusinfo.js'});
   });
