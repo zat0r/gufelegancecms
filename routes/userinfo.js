@@ -6,7 +6,7 @@ const queryString = require('querystring');
 var router = express.Router({ mergeParams: true });
 
 /* Conniction configration. */
-const dbcon = "mongodb://localhost:27017/";
+const dbcon = "mongodb+srv://ahmadZ:Ahmad#1234@gulftestdp-6oj77.mongodb.net/test?retryWrites=true&w=majority";
 const mongOptions = {
   useUnifiedTopology: true,
   useNewUrlParser: true,
@@ -24,7 +24,7 @@ router.get('/', function(req, res, next) {
         if (err) {console.log(clc.red.bold(err))};
        res.render('userinfo', 
        { title: "بيانات المستخدم",
-        jsfile: 'js/Cusinfo.js',
+        jsfile: '/js/Cusinfo.js',
         userid: data[0]._id,
         username: data[0].Name,
         useremail: data[0].Email,

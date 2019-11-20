@@ -6,7 +6,8 @@ const MongoClient = require('mongodb');
 const queryString = require('querystring');
 
 /* Conniction configration. */
-const dbcon = "mongodb://localhost:27017/";
+const dbcon = "mongodb+srv://ahmadZ:Ahmad#1234@gulftestdp-6oj77.mongodb.net/test?retryWrites=true&w=majority";
+//const dbcon = "mongodb://localhost:27017/"; Local connction
 const mongOptions = {
   useUnifiedTopology: true,
   useNewUrlParser: true,
@@ -19,17 +20,17 @@ router.get('/', function(req, res, next) {
      /* create conniction with Database. */
     MongoClient.connect(dbcon, mongOptions, function(err, db) {
         if (err) {console.log(clc.red.bold(err))};
-        var dbo = db.db("testserver");
+        var dbo = db.db("cmsdb");
 
         if (query.type === 'addUser')  {
             console.log(clc.bgBlueBright.bold("Add User working"));
-            dbo.collection("customers").insertOne(query, function(err, res) {
+            dbo.collection("users").insertOne(query, function(err, res) {
               if (err) {console.log(clc.red.bold(err))};
               console.log(clc.green("Users Added _id : ") + clc.red(res.insertedId));Data(res);db.close();
         });} 
         if (query.type === 'getUser')  {
             console.log(clc.bgBlueBright.bold("Get User working"));
-            dbo.collection("customers").find({}).toArray(function(err, res) {
+            dbo.collection("users").find({}).toArray(function(err, res) {
               if (err) {console.log(clc.red.bold(err))};
               console.log(clc.green("Users Sent: ") + clc.red(res.length));Data(res);db.close();
         });}

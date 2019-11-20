@@ -131,3 +131,6 @@ input {
   direction: ltr;
   text-align: right;
 }
+small {
+  font-size: 60%;
+}
