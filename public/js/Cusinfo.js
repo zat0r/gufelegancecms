@@ -17,7 +17,12 @@ $(document).ready(function() {
   });
   var UserData = {
       id: $("#UserID").val(),
-      username: $("#UserID").val(),
-      
+      username: $("#UserName").val(),
+      userbd: $("#UserBD").val(),
+      useremail: $("#UserEmail").val(),
+      userphone: $("#UserPhone").val(),
+      usercountry: $("#UserCountry").val(),
+      usercity: $("#UserCity").val(),
+      useraddress: $("#UserAdress").val()
 
   }
