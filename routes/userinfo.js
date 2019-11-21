@@ -6,7 +6,7 @@ const queryString = require('querystring');
 var router = express.Router({ mergeParams: true });
 
 /* Conniction configration. */
-const dbcon = "mongodb+srv://ahmadZ:Ahmad#1234@gulftestdp-6oj77.mongodb.net/test?retryWrites=true&w=majority";
+const dbcon = "mongodb+srv://ahmadZ:rw5GAkA8cSfX7FaS@gulftestdp-6oj77.mongodb.net/test?retryWrites=true&w=majority";
 const mongOptions = {
   useUnifiedTopology: true,
   useNewUrlParser: true,
@@ -19,8 +19,8 @@ router.get('/', function(req, res, next) {
     MongoClient.connect(dbcon, mongOptions, function(err, db) {
       if (err) {console.log(clc.red.bold(err))};
       var query = {_id: o_id};
-      var dbo = db.db("testserver");
-      dbo.collection("customers").find(query).toArray(function(err, data) {
+      var dbo = db.db("cmsdb");
+      dbo.collection("users").find(query).toArray(function(err, data) {
         if (err) {console.log(clc.red.bold(err))};
        res.render('userinfo', 
        { title: "بيانات المستخدم",

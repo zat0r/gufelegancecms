@@ -6,7 +6,7 @@ const MongoClient = require('mongodb');
 const queryString = require('querystring');
 
 /* Conniction configration. */
-const dbcon = "mongodb+srv://ahmadZ:Ahmad#1234@gulftestdp-6oj77.mongodb.net/test?retryWrites=true&w=majority";
+const dbcon = "mongodb+srv://ahmadZ:rw5GAkA8cSfX7FaS@gulftestdp-6oj77.mongodb.net/test?retryWrites=true&w=majority";
 //const dbcon = "mongodb://localhost:27017/"; Local connction
 const mongOptions = {
   useUnifiedTopology: true,
@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
     var query  = queryString.parse(parsed.query);
     console.log(clc.green("Data from : ") + clc.cyan(req.headers.referer));
      /* create conniction with Database. */
-    MongoClient.connect(dbcon, mongOptions, function(err, db) {
+    MongoClient.connect(dbcon,   function(err, db) {
         if (err) {console.log(clc.red.bold(err))};
         var dbo = db.db("cmsdb");
 
