@@ -24,5 +24,9 @@ $(document).ready(function() {
       usercountry: $("#UserCountry").val(),
       usercity: $("#UserCity").val(),
       useraddress: $("#UserAdress").val()
+  }
 
+  function updateuser() {
+      //check changed info
+      
   }

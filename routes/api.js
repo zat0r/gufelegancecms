@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
     var query  = queryString.parse(parsed.query);
     console.log(clc.green("Data from : ") + clc.cyan(req.headers.referer));
      /* create conniction with Database. */
-    MongoClient.connect(dbcon,   function(err, db) {
+    MongoClient.connect(dbcon, mongOptions,  function(err, db) {
         if (err) {console.log(clc.red.bold(err))};
         var dbo = db.db("cmsdb");
 
@@ -28,12 +28,30 @@ router.get('/', function(req, res, next) {
               if (err) {console.log(clc.red.bold(err))};
               console.log(clc.green("Users Added _id : ") + clc.red(res.insertedId));Data(res);db.close();
         });} 
-        if (query.type === 'getUser')  {
-            console.log(clc.bgBlueBright.bold("Get User working"));
+        if (query.type === 'getUsers')  {
+            console.log(clc.bgBlueBright.bold("Get All Users working"));
             dbo.collection("users").find({}).toArray(function(err, res) {
               if (err) {console.log(clc.red.bold(err))};
               console.log(clc.green("Users Sent: ") + clc.red(res.length));Data(res);db.close();
         });}
+        if (query.type === 'getinfo')  {
+          var o_id = new MongoClient.ObjectId(query.idinfo)
+          varinfo= {_id: o_id}
+          console.log(clc.bgBlueBright.bold("Get User ID: " + query.idinfo));
+          dbo.collection("users").find(varinfo).toArray(function(err, res) {
+            if (err) {console.log(clc.red.bold(err))};
+            console.log(clc.green("user info name sent: ") + clc.red(res[0].Name));Data(res);db.close();
+        });}
+        if (query.type === 'UpdateUser')  {
+          var o_id = new MongoClient.ObjectId(query.userid)
+          var dselect= {_id: o_id}
+          var newvalues = { $set: {Name: query.Name, Email: query.Email, City: query.City, BirthDay: query.BirthDay, Phone: query.Phone, Address: query.Address}}
+          console.log(clc.bgBlueBright.bold("‘Update User ID: " + query.userid));
+          dbo.collection("users").updateOne(dselect, newvalues, function(err, res) {
+            if (err) throw err;
+            console.log(clc.green("user info Updated: ") + clc.red(query.Name));Data(res);db.close();
+          });}
+      
     }); 
     function Data(msg) {
         res.send(JSON.stringify({'success': msg}));

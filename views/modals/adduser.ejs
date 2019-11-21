@@ -4,7 +4,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">إضافة عميل جديد</h5>
-          <button type="button" class="close closemodal" aria-label="Close">
+          <button type="button" class="close" onclick="modal('out', '#Addnew');" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -34,14 +34,14 @@
                             <label>المدينة</label>
                             <select type='select' id="UserCity" class="form-control">
                                     <option value="" selected>الرجاء الإختيار</option>
-                                    <option value="amman">عمان</option>
-                                    <option value="aqaba">العقية</option>
-                                    <option value="ajlon">عجلون</option>
-                                    <option value="zarqaa">الزرقاء</option>
-                                    <option value="baqaa">البقعاء</option>
-                                    <option value="batraa">البتراء</option>
-                                    <option value="dead_sea">البحر الميت</option>
-                                    <option value="jarsh">جرش</option>
+                                    <option value="عمان">عمان</option>
+                                    <option value="العقبة">العقية</option>
+                                    <option value="عجلون">عجلون</option>
+                                    <option value="الزرقاء">الزرقاء</option>
+                                    <option value="البقعاء">البقعاء</option>
+                                    <option value="البتراء">البتراء</option>
+                                    <option value="البحر الميت">البحر الميت</option>
+                                    <option value="جرش">جرش</option>
                                     </select>
                                     <small class="form-text text-muted">ضروري</small>
                           </div>
@@ -65,8 +65,8 @@
                       </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary closemodal">إلغاء</button>
-          <button type="button" type="submit" class="btn btn-primary supbutton" onclick="SendUser()">إضافة</button>
+          <button type="button" class="btn btn-secondary" onclick="modal('out', '#Addnew')">إلغاء</button>
+          <button type="button" class="btn btn-primary supbutton" onclick="SendUser()">إضافة</button>
           <div class="loading"></div>
         </div>
       </div>
