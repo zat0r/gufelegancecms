@@ -8,7 +8,9 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var usersInfoRouter = require('./routes/userinfo');
 var apiRouter = require('./routes/api');
-var proRouter = require('./routes/prodacts')
+var proRouter = require('./routes/prodacts');
+var pinfoRouter = require('./routes/proinfo');
+var filesmanage = require('./routes/handler')
 
 var app = express();
 
@@ -27,6 +29,9 @@ app.use('/users', usersRouter);
 app.use('/users/:userId', usersInfoRouter);
 app.use('/api', apiRouter);
 app.use('/prodacts', proRouter);
+app.use('/prodacts/:info', pinfoRouter);
+app.use('/uploadfile', filesmanage);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -41,6 +46,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
+  console.log(err.message);
   res.render('error');
 });
 

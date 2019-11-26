@@ -5,6 +5,7 @@
 @import url(../plugin/jq_datatable/datatable.min.css);
 @import url(../plugin/sweetalert/sweetalert2.min.css);
 @import url(../plugin/animate/animate.css);
+
 /* End */
 body {
   font-size: 17px;
@@ -133,4 +134,37 @@ input {
 }
 small {
   font-size: 60%;
+}
+.formfile {
+  border: 3px #000 dashed;
+  border-radius: 20px;
+  height: 250px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.filebutton {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 85%;
+  opacity: 0;
+  padding: 14px 0;
+  cursor: pointer;
+  z-index: 1;
+}
+.formfile label {
+  position: absolute;
+  width: 89%;
+  text-align: center;
+  top: 45%;
+}
+.showOnePro {
+  border: 2px dashed;
+    border-radius: 15px;
+    height: 38%;
+    margin: 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
