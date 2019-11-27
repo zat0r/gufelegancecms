@@ -20,8 +20,8 @@ function MainPicSubmit(event) {
       success: function (data) {
           $("#ProMainPic label").hide();
           console.log("SUCCESS : ", data);
-          $("#ProMainPic").css("background-image", "url('/images/prodacts/" + data.filename + "')");
-          $("#MainPicID").val(data.filename);
+          $("#ProMainPic").css("background-image", "url('/images/prodacts/" + data.Mainpic[0].filename + "')");
+          $("#MainPicID").val(data.Mainpic[0].filename);
           $.notify("تم رفع الصورة الرئيسية", "success");
       },
       error: function (e) {
@@ -47,8 +47,11 @@ function OtherPicSubmit(event) {
         success: function (data) {
             $("#ProOtherPics label").hide();
             console.log("SUCCESS : ", data);
-            var url = "url('/images/prodacts/" + data.filename + "')"
-            $("#ProOtherPics").append("<div class='showOnePro col-md-2 align-self-center' style='background-image: " + url + "'></div>");
+            for (i = 0; i < data.OtherPics.length; ++i) {
+            var url = "url('/images/prodacts/" + data.OtherPics[i].filename + "')"
+            $("#ProOtherPics").append("<div class='showOnePro col-md-2 align-self-center' style=\"background-image: " + url + "\"></div>");
+            $("#Otherpicsdata").append("<option value='" + data.OtherPics[i].filename + "'>" + data.OtherPics[i].filename + "</option>");
+            }
            // $("#ProOtherID").val(data.filename);
             $.notify("تم رفع مجموعة الصور", "success");
         },
