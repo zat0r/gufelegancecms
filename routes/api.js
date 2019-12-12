@@ -68,7 +68,7 @@ router.get('/', function(req, res, next) {
           });}
           if (query.type === 'addprodact')  {
             console.log(clc.bgBlueBright.bold("Add User working"));
-            dbo.collection("prodacts").insertOne(query, function(err, res) {
+            dbo.collection("prodacts").insertOne(query.data, function(err, res) {
               if (err) {console.log(clc.red.bold(err))};
               console.log(clc.green("Prodact Added _id : ") + clc.red(res.insertedId));Data(res);db.close();
         });} 
