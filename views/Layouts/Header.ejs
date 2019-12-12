@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>إدارة المتجر - <%= title %></title>
+
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+
+<body class="theme-red">
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="preloader">
+                <div class="spinner-layer pl-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <p>الرجاء الإنتظار...</p>
+        </div>
+    </div>
+    <div class="overlay"></div>
+    <div class="search-bar">
+        <div class="search-icon">
+            <i class="fas fa-search"></i>
+        </div>
+        <input type="text" placeholder="إبحث هنا...">
+        <div class="close-search">
+            <i class="fas fa-times"></i>
+        </div>
+    </div>
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="fas navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+                    aria-expanded="false"></a>
+                <a class="bars fas"></a>
+                <p class="navbar-brand">إدارة المتجر</p>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a class="js-search" data-close="true"><i class="fas fa-search"></i></a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                            <i class="fas fa-bell"></i>
+                            <span class="label-count">0</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">التنبيهات</li>
+                            <li class="body">
+                                <ul class="menu">
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="icon-circle bg-light-green">
+                                                <i class="fas fa-user-plus"></i>
+                                            </div>
+                                            <div class="menu-info">
+                                                <h4>تم تسجيل 10 أشخاص جدد</h4>
+                                                <p><i class="fas fa-history"></i> من 14 دقيقة</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="footer">
+                                <a href="javascript:void(0);">إظهار جميع التنبيهات</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- #Top Bar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- User Info -->
+            <div class="user-info">
+                <div class="info-container">
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">الإدارة</div>
+                    <div class="email">Ahmad@zat0r.com</div>
+                    <div class="btn-group user-helper-dropdown">
+                        <i class="fas fa-chevron-circle-down" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="true"></i>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="javascript:void(0);"><i class="fas fa-info"></i>الصفحة الشخصية</a></li>
+                            <li><a href="javascript:void(0);"><i class="fas fa-cog"></i>الإعدادات</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="javascript:void(0);"><i class="fas fa-sign-out-alt"></i>تسجيل خروج</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- #User Info -->
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li class="header">التقارير</li>
+                    <li>
+                        <a href="/">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>الرئيسية</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-database"></i>
+                            <span>حالة قاعدة البيانات</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-compress-arrows-alt"></i>
+                            <span>حركة الزوار</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-toggle">
+                            <i class="fas fa-money-bill-wave-alt"></i>
+                            <span>المالية</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="#">
+                                    <span>الحركة المالية</span>
+                                </a>
+                                <a class="menu-toggle">
+                                    <span>المبيعات</span>
+                                </a>
+                                <ul class="ml-menu">
+                                    <li>
+                                        <a href="#">الإيصالات</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">الطلبات</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="header">المستخدمين</li>
+                    <li>
+                        <a href="/users">
+                            <i class="fas fa-users-cog"></i>
+                            <span>إدارة المستخدمين</span>
+                        </a>
+                    </li>
+                    <li>
+                    <li class="header">المنتجات</li>
+                     <li>
+                        <a href="/prodacts">
+                            <i class="fas fa-boxes"></i>
+                            <span>إدارة المنتجات</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- #Menu -->
+            <!-- Footer -->
+            <div class="legal">
+                <div class="copyright">
+                    &copy; 2019 <a>إدارة المتجر الإلكتروني</a>.
+                </div>
+                <div class="version">
+                    <b>Version: </b> 0.0.0
+                </div>
+            </div>
+            <!-- #Footer -->
+        </aside>
+        <!-- #END# Left Sidebar -->
+    </section>

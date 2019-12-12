@@ -1,0 +1,102 @@
+<div class="modal fade" id="UserModal" tabindex="-1" role="dialog" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="ModalLabel"></h4>
+            </div>
+            <div class="modal-body">
+                <div class="row clearfix">
+                    <div class="col-sm-12">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="text" class="form-control" id="UserName">
+                                <label class="form-label">الإسم</label>
+                                <div class="help-info">مطلوب</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="text" class="form-control ltrinput" id="UserPhone">
+                                <label class="form-label">رقم الجوال</label>
+                                <div class="help-info">مطلوب</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control show-tick" data-live-search="true" id="UserCity">
+                                <option value="">-- إختر المدينة --</option>
+                                <option value="عمان">عمان</option>
+                                <option value="الزرقاء">الزرقاء</option>
+                                <option value="عجلون">عجلون</option>
+                                <option value="البقعاء">البقعاء</option>
+                                <option value="وادي رم">وادي رم</option>
+                                <option value="البحر الميت">البحر الميت</option>
+                                <option value="العقبة">العقبة</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="email" class="form-control" id="UserEmail">
+                                <label class="form-label">الإيميل</label>
+                                <div class="help-info">إختياري</div>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" disabled id="UserCountry">
+                                <option value="الأردن">الأردن</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="text" class="form-control ltrinput" id="UserBirthDay">
+                                <label class="form-label">تاريخ الميلاد</label>
+                                <div class="help-info">إختياري</div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="password" class="form-control" id="UserPass">
+                                <label class="form-label">كلمة المرور</label>
+                                <div class="help-info">إختياري</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <textarea rows="1" class="form-control no-resize auto-growth" id="UserAddress"></textarea>
+                                <label class="form-label">العنوان</label>
+                                <div class="help-info">عادي لو ضغت على Enter (مطلوب)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary waves-effect" id="supbutton" onclick="">حفظ
+                    التغيرات</button>
+                <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">إلغاء</button>
+                <div id="addusermodalloading" class="preloader pl-size-sm">
+                    <div class="spinner-layer pl-red-grey">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

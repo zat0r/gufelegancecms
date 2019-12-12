@@ -1,0 +1,59 @@
+<%- include('Layouts/Header'); -%>
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2><%= title %></h2>
+            <button type="button" onclick="AddNewModal()" class="btn bg-cyan waves-effect">إضافة مستخدم جديد</button>
+        </div>
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header"><h2>قائمة المستخدمين</h2>
+                        <ul class="header-dropdown m-r--5">
+                            <li>
+                                <a onclick="reloadData()" data-toggle="cardloading" data-loading-effect="timer">
+                                    <i class="fas fa-redo"></i>
+                                </a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="javascript:void(0);" class=" waves-effect waves-block">تصدير إكسل</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="body">
+                        <div class="table-responsive">
+                            <table id="MainTable" class="table table-bordered table-striped table-hover dataTable">
+                                <thead>
+                                    <tr>
+                                        <th>الإسم</th>
+                                        <th>الجوال</th>
+                                        <th>المدينة</th>
+                                        <th>العنوان</th>
+                                        <th>إجراءات</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>الإسم</th>
+                                        <th>الجوال</th>
+                                        <th>المدينة</th>
+                                        <th>العنوان</th>
+                                        <th>إجراءات</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody id="UserData"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+</section>
+<%- include('Layouts/Footer'); -%>
+<%- include('modals/user'); -%>

@@ -1,0 +1,136 @@
+<%- include('Layouts/Header'); -%>
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2><%= title %> - <%= username %></h2>
+        </div>
+        <div class="row clearfix">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="header">
+                        <h2>المعلومات الشخصية</h2>
+                    </div>
+                    <div class="body">
+                        <div class="row clearfix">
+                            <div class="col-md-12">
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-addon">
+                                        <i class="fas fa-qrcode"></i>
+                                    </span>
+                                    <div class="form-line success">
+                                        <input type="text" class="form-control" value="<%= userid %>" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-addon">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" value="<%= username %>">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon">
+                                            <i class="fas fa-at"></i>
+                                        </span>
+                                        <div class="form-line">
+                                            <input type="text" class="form-control" value="<%= useremail %>">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon">
+                                            <i class="fas fa-mobile-alt"></i>
+                                        </span>
+                                        <div class="form-line">
+                                            <input type="text" class="form-control" value="<%= userphone %>">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                        <div class="input-group input-group-lg">
+                                            <span class="input-group-addon">
+                                                    <i class="fas fa-birthday-cake"></i>
+                                            </span>
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" value="<%= userbd %>">
+                                            </div>
+                                        </div>
+                                    </div>
+                            <div class="col-sm-6">
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-addon">
+                                        <i class="fas fa-city"></i>
+                                    </span>
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" value="<%= usercity %>">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-addon">
+                                        <i class="fas fa-flag"></i>
+                                    </span>
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" value="<%= usercountry %>">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </span>
+                                        <div class="form-line">
+                                            <input type="text" class="form-control" value="<%= userAddress %>">
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                    <div class="card">
+                        <div class="header">
+                            <h2>إعدادت الحساب</h2>
+                        </div>
+                        <div class="body">
+                            <div class="row clearfix">
+                                <div class="col-md-12">
+                                        <button type="button" class="btn btn-block btn-lg btn-warning waves-effect">حضر المستخدم</button>
+                                        <button type="button" class="btn btn-block btn-lg btn-danger waves-effect">حذف المستخدم</button>
+                                        <button type="button" class="btn btn-block btn-lg btn-info waves-effect">نشاط المستخدم</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                            <div class="header">
+                                <h2>أخر نشاطات المستخدم</h2>
+                            </div>
+                            <div class="body">
+                                <div class="row clearfix">
+                                    <div class="col-md-12">
+                                            <ul class="list-group">
+                                                    <li class="list-group-item list-group-bg-teal"><h4 class="list-group-item-heading">تسجيل دخول إلى التطبيق</h4><small>قبل ساعة</small></li>
+                                                    <li class="list-group-item"><h4 class="list-group-item-heading">البحث عن "شتوي"</h4><small>قبل 50 دقيقة</small></li>
+                                                    <li class="list-group-item list-group-bg-cyan"><h4 class="list-group-item-heading">فتح صفحة عباية رقم : 206</h4><small>قبل 20 دقيقة</small></li>
+                                                    <li class="list-group-item list-group-bg-teal"><h4 class="list-group-item-heading">القيام بطلب الشراء فاتورة رقم : 0007</h4><small>الأن</small></li>
+                                                    
+                                                </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+        </div>
+    </div>
+</section>
+<%- include('Layouts/Footer'); -%>

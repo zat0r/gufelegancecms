@@ -1,0 +1,161 @@
+<%- include('Layouts/Header'); -%>
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2><%= title %></h2>
+        </div>
+        <div class="row clearfix">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="header">
+                        <h2>بيانات المنتج</h2>
+                    </div>
+                    <div class="body">
+                        <div class="form-group form-float">
+                            <div class="form-line focused success">
+                                <input type="text" class="form-control" value="<%= proid %>" id="pro_id" disabled>
+                                <label class="form-label ">الرمز المرجعي_ID</label>
+                                <div class="help-info">لايمكنك الإدخال هنا (رقم مرجعي للنظام فقط)</div>
+                            </div>
+                        </div>
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="text" class="form-control" value="<%= proname %>" id="proname">
+                                <label class="form-label">إسم المنتج</label>
+                                <div class="help-info">مطلوب</div>
+                            </div>
+                        </div>
+                        <div class="form-group form-float">
+                            <div class="form-group">
+                                <select class="form-control show-tick" data-value="<%= procat %>" id="procat">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-xs-6">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control ltrinput" value="<%= probuy %>" id='prosell'>
+                                        <label class="form-label ">سعر البيع</label>
+                                        <div class="help-info"> (مطلوب)</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control ltrinput" value="<%= prosell %>" id='probuy'>
+                                        <label class="form-label">تكلفة الشراء</label>
+                                        <div class="help-info">يمكن تركه فارغ</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="text" class="form-control ltrinput" value="<%= barcode %>" id='probarcode'>
+                                <label class="form-label">باركود المنتج</label>
+                                <div class="help-info">في حال تركه فارغ سيعبأ تلقائيا</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="header bg-cyan"><h2>باركود المنتج</h2></div>
+                    <div class="body align-center">
+                            <div class="form-group form-float align-right">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control ltrinput" value="<%= barcode %>" id='oldprobarcode' disabled>
+                                        <label class="form-label">رقم الباركود المسجل</label>
+                                    </div>
+                                </div>
+                            <svg id="barcode"></svg>
+                        </div>
+                    </div>
+                <div class="card">
+                    <div class="header"><h2>تتبع المخزون</h2></div>
+                    <div class="body">  
+                            <ul class="list-group">
+                                <li class="list-group-item"><h4>المتجر الرئيسي</h4><div class="form-group form-float listcount"><div class="form-line"><input type="text" class="form-control" value="<%= quantity %>" id="proqunt"><label class="form-label">الكمية</label></div>
+                                </div></li>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="header bg-cyan"><h2>صور المنتج</h2></div>
+                    <div class="body row clearfix">
+                        <div class="col-sm-3 col-xs-6">
+                            <h4>الصورة الرئيسية</h4>
+                                <form id="Mainpicupload" data-value="<%= mainpic %>" class="dropzone">
+                                    <div class="fallback">
+                                        <input name="Mainpic" type="file" multiple/>
+                                    </div>
+                                </form>
+                        </div>
+                        <div class="col-sm-3 col-xs-6">
+                            <h4>صورة ثلاثية الأبعاد</h4>
+                                <form id="Dpicupload" data-value="<%= tdpic %>" class="dropzone">
+                                    <div class="fallback">
+                                        <input name="tdpic" type="file" multiple/>
+                                    </div>
+                                </form>
+                        </div>
+                        <div class="col-sm-6">
+                            <h4>الصور الإضافية</h4>
+                                <form id="Otherpicupload" data-value="<%= otherpics %>" class="dropzone">
+                                    <div class="fallback">
+                                        <input name="OtherPics" type="file" multiple/>
+                                    </div>
+                                </form>
+                        </div>
+                        </div>
+                    </div>
+            </div>
+            <div CLASS="col-sm-12">
+                <div class="shop card">
+                <div class="header bg-red">
+                    <h2>المتجر الإلكتروني</h2>
+                    <div class="header-dropdown">
+                            <div class="switch">
+                                <label>إضافة<input type="checkbox" id="OnlineChecked" data-value='<%= onlinestatus %>' value="off"><span class="lever"></span>إزالة</label>
+                            </div>
+                        </div>
+                </div>
+                <div class="body collapse" id="Onlineshowtrigger" aria-expanded="false">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <textarea rows="1" class="form-control no-resize auto-growth" data-value='<%= onlineabout %>' id="prostoreinfo"></textarea>
+                                <label class="form-label">وصف المنتج</label>
+                                <div class="help-info">عادي لو ضغت على Enter (مطلوب)</div>
+                            </div>
+                        </div>
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="text" class="form-control" value='<%= onlinecreate %>' id="procityinfo">
+                                <label class="form-label ">مدينة الصناعة</label>
+                                <div class="help-info">البلد المنشئة</div>
+                            </div>
+                        </div>
+                        <div class="form-group form-float">
+                            <div class="form-line focused">
+                                <input type="text" class="form-control" value='<%= onlinecontain %>' data-role="tagsinput" id="procontinfo">
+                                <label class="form-label">محتويات المنتج</label>
+                            </div>
+                        </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="body">
+                            <button type="button" class="btn bg-green btn-lg waves-effect" id="supbutton">حفظ البيانات</button>
+                            <button type="button" class="btn btn-lg waves-effect">إلغاء</button>
+                    </div>
+                </div>
+            </div>
+</section>
+<%- include('Layouts/Footer'); -%>
