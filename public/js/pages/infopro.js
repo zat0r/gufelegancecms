@@ -133,7 +133,7 @@ if (window.location.pathname === "/prodacts/add") {
               success: function(data){
                 var final = ''
                 var allpics = $('#Otherpicupload').attr('data-value').split(',')
-                for (i=0; allpics.length > 0; ++i){
+                for (i=0; allpics.length > i; ++i){
                     if(allpics[i] === result || allpics[i] === ''){console.log('found it')}else{
                         if( final === '' || final === undefined){final += allpics[i]}else{final += ','+ allpics[i]}
                     }
@@ -284,7 +284,7 @@ function AddProdact(){
     }
     console.log('first point')
 
-    var prodata = { type: 'addprodact',
+    var prodata = { type: 'addprodact', data: {
         name: $('#proname').val(),
         catagory: $('#procat').val(),
         buy: $('#probuy').val(),
@@ -304,6 +304,7 @@ function AddProdact(){
             create: $('#procityinfo').val(),
             contain: $('#procontinfo').val()
         }
+    }
         
     }
     $.ajax({

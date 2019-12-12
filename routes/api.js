@@ -56,7 +56,7 @@ router.get('/', function(req, res, next) {
             var dselect= {_id: o_id}
             var newvalues = { $set: query.data}
             console.log(clc.bgBlueBright.bold("‘Update User ID: " + query.userid));
-            dbo.collection("users").updateOne(dselect, newvalues, function(err, res) {
+            dbo.collection("prodacts").updateOne(dselect, newvalues, function(err, res) {
               if (err) throw err;
               console.log(clc.green("user info Updated: ") + clc.red(query.Name));Data(res);db.close();
             });}
