@@ -19,7 +19,7 @@ $(document).ready(function() {
         success: function(data){
             console.log(data)
             var outTable = '';
-            var as = '<button class="btn btn-primary  waves-effect" data-userid="THISID" onclick="editModal(\'THISID\')"><i class="fas fa-edit"></i></button><a href="users/THISID" class="btn btn-warning  waves-effect"><i class="fas fa-users-cog"></i></a>';
+            var as = '</button><a href="prodacts/THISID" class="btn btn-warning  waves-effect"><i class="fas fa-users-cog"></i></a>';
             for (i = 0; i < data["success"].length; i++) {
                 outTable += '<tr><td>'+ data["success"][i]._id + '</td><td>' + data["success"][i].name + '</td><td>' + data["success"][i].catagory + '</td><td>' + data["success"][i]['quantity[mainstore]'] + '</td><td>' + as.replace(/THISID/g, data["success"][i]._id) + '</td></tr>';
             }
