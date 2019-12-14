@@ -1,6 +1,7 @@
 $(document).ready(function() {
     PageData();
     autosize($('textarea.auto-growth'));
+    $("select").selectpicker();
   });
 function AddUser() {
     loading("جاري التأكد من صحة البيانات", "start");
