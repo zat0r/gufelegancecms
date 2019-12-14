@@ -50,6 +50,14 @@ router.get('/', function(req, res, next) {
             if (err) throw err;
             console.log(clc.green("user info Updated: ") + clc.red(query.Name));Data(res);db.close();
           });}
+          if (query.type === 'ProCatCount')  {
+            var dselect= {_id: query.}
+            var newvalues = { $set: query.data}
+            console.log(clc.bgBlueBright.bold("‘check Categories Count: " + query.userid));
+            dbo.collection("prodacts").updateOne(dselect, newvalues, function(err, res) {
+              if (err) throw err;
+              console.log(clc.green("user info Updated: ") + clc.red(query.Name));Data(res);db.close();
+            });}
           if (query.type === 'Updateprodact')  {
             console.log(query.data)
             var o_id = new MongoClient.ObjectId(query.proid)
