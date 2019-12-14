@@ -43,6 +43,7 @@ function AddUser() {
     loading("جاري رفع البيانات", "start")
     data = { 
         type: "addUser",
+        data: {
         Name: $("#UserName").val(), 
         Email: $("#UserEmail").val(), 
         Password: $("#UserPass").val(),
@@ -54,6 +55,7 @@ function AddUser() {
         RegDate: moment().format(),
         isDeleted: false,
         isBlocked: false
+        }
     }
     $.ajax ({
         url:'/api',
@@ -161,7 +163,7 @@ function edituser(id){
           return;
     }
     loading("جاري تعديل البيانات", "start");
-    var updateuser = {type: "UpdateUser", userid: id, Name: $("#UserName").val(), Email: $("#UserEmail").val(), City: $("#UserCity").val(), BirthDay: $("#UserBirthDay").val(), Phone: $("#UserPhone").val(), Address: $("#UserAddress").val() }
+    var updateuser = {type: "UpdateUser", userid: id, data: { Name: $("#UserName").val(), Email: $("#UserEmail").val(), City: $("#UserCity").val(), BirthDay: $("#UserBirthDay").val(), Phone: $("#UserPhone").val(), Address: $("#UserAddress").val() }}
     $.ajax ({
         url: '/api',
         dataType: 'json',

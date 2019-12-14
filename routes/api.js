@@ -23,7 +23,7 @@ router.get('/', function(req, res, next) {
 
         if (query.type === 'addUser')  {
             console.log(clc.bgBlueBright.bold("Add User working"));
-            dbo.collection("users").insertOne(query, function(err, res) {
+            dbo.collection("users").insertOne(query.data, function(err, res) {
               if (err) {console.log(clc.red.bold(err))};
               console.log(clc.green("Users Added _id : ") + clc.red(res.insertedId));Data(res);db.close();
         });} 
@@ -44,7 +44,7 @@ router.get('/', function(req, res, next) {
         if (query.type === 'UpdateUser')  {
           var o_id = new MongoClient.ObjectId(query.userid)
           var dselect= {_id: o_id}
-          var newvalues = { $set: {Name: query.Name, Email: query.Email, City: query.City, BirthDay: query.BirthDay, Phone: query.Phone, Address: query.Address}}
+          var newvalues = { $set: query.data}
           console.log(clc.bgBlueBright.bold("‘Update User ID: " + query.userid));
           dbo.collection("users").updateOne(dselect, newvalues, function(err, res) {
             if (err) throw err;
