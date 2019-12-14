@@ -46,17 +46,16 @@ router.get('/', function(req, res, next) {
           var dselect= {_id: o_id}
           var newvalues = { $set: query.data}
           console.log(clc.bgBlueBright.bold("‘Update User ID: " + query.userid));
-          dbo.collection("users").updateOne(dselect, newvalues, function(err, res) {
+          dbo.collection("prodacts").updateOne(dselect, newvalues, function(err, res) {
             if (err) throw err;
             console.log(clc.green("user info Updated: ") + clc.red(query.Name));Data(res);db.close();
           });}
           if (query.type === 'ProCatCount')  {
-            var dselect= {_id: query.}
-            var newvalues = { $set: query.data}
-            console.log(clc.bgBlueBright.bold("‘check Categories Count: " + query.userid));
-            dbo.collection("prodacts").updateOne(dselect, newvalues, function(err, res) {
-              if (err) throw err;
-              console.log(clc.green("user info Updated: ") + clc.red(query.Name));Data(res);db.close();
+            var dselect= {catagory: query.name}
+            console.log(clc.bgBlueBright.bold("‘check Categories Count: " + query.name));
+            dbo.collection("users").find(dselect).toArray(function(err, res) {
+              if (err) {console.log(clc.red.bold(err))};
+              console.log(clc.green("pro caount : ") + clc.red(res.length));Data(res.length);db.close();
             });}
           if (query.type === 'Updateprodact')  {
             console.log(query.data)
