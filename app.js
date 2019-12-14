@@ -10,6 +10,7 @@ var usersInfoRouter = require('./routes/userinfo');
 var apiRouter = require('./routes/api');
 var proRouter = require('./routes/prodacts');
 var proInfoRouter = require('./routes/proinfo');
+var catRouter = require('./routes/categories');
 var filesmanage = require('./routes/handler');
 
 var app = express();
@@ -29,8 +30,10 @@ app.use('/users', usersRouter);
 app.use('/users/:userId', usersInfoRouter); 
 app.use('/api', apiRouter);
 app.use('/prodacts', proRouter);
+app.use('/catagorys', catRouter);
 app.use('/prodacts/:proId', proInfoRouter);
 app.use('/uploadfile', filesmanage);
+
 
 
 // catch 404 and forward to error handler
