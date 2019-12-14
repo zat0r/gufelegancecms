@@ -30,7 +30,7 @@ app.use('/users', usersRouter);
 app.use('/users/:userId', usersInfoRouter); 
 app.use('/api', apiRouter);
 app.use('/prodacts', proRouter);
-app.use('/catagorys', catRouter);
+app.use('/categories', catRouter);
 app.use('/prodacts/:proId', proInfoRouter);
 app.use('/uploadfile', filesmanage);
 
