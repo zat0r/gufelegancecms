@@ -34,14 +34,14 @@ router.get('/', function(req, res, next) {
         probuy: data[0].buy,
         prosell: data[0].sell,
         barcode: data[0].barcode,
-        quantity: data["success"][0].quantity.mainstore,
-        mainpic: data["success"][0].pics.main,
-        tdpic: data["success"][0].pics.tdpic,
-        otherpics: data["success"][0].pics.otherpic,
-        onlinestatus: data["success"][0].online.status,
-        onlineabout: data["success"][0].online.about,
-        onlinecreate: data["success"][0].online.create,
-        onlinecontain: data["success"][0].online.contain
+        quantity: data[0].quantity.mainstore,
+        mainpic: data[0].pics.main,
+        tdpic: data[0].pics.tdpic,
+        otherpics: data[0].pics.otherpic,
+        onlinestatus: data[0].online.status,
+        onlineabout: data[0].online.about,
+        onlinecreate: data[0].online.create,
+        onlinecontain: data[0].online.contain
       });
       });
     });

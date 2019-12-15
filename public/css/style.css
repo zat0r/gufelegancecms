@@ -7582,6 +7582,7 @@ direction: ltr; }
   .sidebar .legal {
     position: absolute;
     bottom: 0;
+    box-shadow: 0px 0px 20px 3px #0000004f;
     width: 100%;
     border-top: 1px solid #eee;
     padding: 15px;
