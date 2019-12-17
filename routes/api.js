@@ -56,8 +56,9 @@ router.get('/', function (req, res, next) {
     }
     if (query.type === 'ProCatCount') {
       var dselect = { catagory: query.name }
+      var getvalue = { $match}
       console.log(clc.bgBlueBright.bold("‘check Categories Count: " + query.name));
-      dbo.collection("users").find(dselect).toArray(function (err, res) {
+      dbo.collection("prodacts").find(dselect).toArray(function (err, res) {
         if (err) { console.log(clc.red.bold(err)) };
         console.log(clc.green("pro caount : ") + clc.red(res.length)); Data(res.length); db.close();
       });
