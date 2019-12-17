@@ -26,9 +26,9 @@ $(document).ready(function() {
         success: function(catdata){
             console.log(catdata)
             var outTable = '';
-            var as = '<button class="btn btn-primary  waves-effect" data-userid="THISID" onclick="editModal(\'THISID\')"><i class="fas fa-edit"></i></button><a onclick="Deletecat(THISID)" class="btn btn-danger waves-effect"><i class="fas fa-users-cog"></i></a>';
+            var as = '<button class="btn btn-primary  waves-effect" data-userid="THISID" onclick="editModal(\'THISID\')"><i class="fas fa-edit"></i></button><a onclick="Deletecat(THISID, THISNAME)" class="btn btn-danger waves-effect"><i class="fas fa-users-cog"></i></a>';
             for (i = 0; i < catdata["success"].length; i++) {
-                outTable += '<tr><td>'+ catdata["success"][i].name + '</td><td>' + "عدد" + '</td><td>' + as.replace(/THISID/g, catdata["success"][i]._id) + '</td></tr>';
+                outTable += '<tr><td>'+ catdata["success"][i].name + '</td><td>' + "عدد" + '</td><td>' + as.replace(/THISID/g, catdata["success"][i]._id).replace(/THISNAME/g, data["success"][i].name) + '</td></tr>';
             }
             $("#UserData").html(outTable);
             $('#MainTable').DataTable({
@@ -42,4 +42,35 @@ $(document).ready(function() {
             console.log(data)
         }
     })
+  }
+  function Deletecat(id, name){
+      console.log(id + '  ' + name);
+      swal({
+        title: "هل أنت متأكد?",
+        text: "هل أنت متأكد بأنك تريد حذف " + name + "من قاعدة البيانات",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "نعم , قم بالحذف!",
+        cancelButtonText: "إلفاء الأمر",
+        closeOnConfirm: false,
+        closeOnCancel: false
+    }, function (isConfirm) {
+        if (isConfirm) {
+            var data = { type: "DeleteCat", id: id}
+            $.ajax({
+                url: "/api",
+                data: data,
+                success: function(data){
+                    console.log(data);
+                    swal("تم الحذف!", "لقد تم حذف التصنيف بنجاح.", "success");
+                },
+                error: function(data){
+                    swal("حصلت مشكلة", "لم يتم الحذف .. الرجاء المحاولة فيما بعد أو التواصل مع مسؤول النظام", "error");
+                }
+            })
+        } else {
+            swal("تم الإلفاء", "لم يتم حذف " + name, "error");
+        }
+    });
   }
