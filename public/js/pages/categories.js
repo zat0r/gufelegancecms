@@ -54,7 +54,8 @@ $(document).ready(function() {
         confirmButtonText: "نعم , قم بالحذف!",
         cancelButtonText: "إلفاء الأمر",
         closeOnConfirm: false,
-        closeOnCancel: false
+        closeOnCancel: false,
+        showLoaderOnConfirm: true,
     }, function (isConfirm) {
         if (isConfirm) {
             var data = { type: "DeleteCat", id: id}
