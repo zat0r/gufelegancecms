@@ -26,7 +26,7 @@ $(document).ready(function() {
         success: function(catdata){
             console.log(catdata)
             var outTable = '';
-            var as = '<button class="btn btn-primary  waves-effect" data-userid="THISID" onclick="editModal(\'THISID\')"><i class="fas fa-edit"></i></button><a onclick="Deletecat(THISID, THISNAME)" class="btn btn-danger waves-effect"><i class="fas fa-users-cog"></i></a>';
+            var as = '<button class="btn btn-primary  waves-effect" data-userid="THISID" onclick="editModal(\'THISID\')"><i class="fas fa-edit"></i></button><a onclick="Deletecat(\'THISID\', \'THISNAME\')" class="btn btn-danger waves-effect"><i class="fas fa-users-cog"></i></a>';
             for (i = 0; i < catdata["success"].length; i++) {
                 outTable += '<tr><td>'+ catdata["success"][i].name + '</td><td>' + "عدد" + '</td><td>' + as.replace(/THISID/g, catdata["success"][i]._id).replace(/THISNAME/g, catdata["success"][i].name) + '</td></tr>';
             }
