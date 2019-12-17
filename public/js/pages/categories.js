@@ -9,6 +9,9 @@ $(document).ready(function() {
     $("#CatModal").modal("show");
     $("#supbutton").attr('onclick', "AddCat()");
   }
+  function AddCat(){
+    console.log('add cat function is working')
+  }
   function PageData(){
     var effect = $('.card').data('loadingEffect');
     $('.card').waitMe({
@@ -75,3 +78,7 @@ $(document).ready(function() {
         }
     });
   }
+  function resetinputs(){
+      $('#CatName').val('')
+      $('#CatDes').val('')
+      }
