@@ -11,6 +11,8 @@ router.post('/', function(req, res, next) {
     }
     if (massage.text === 'عباية'){
         res.send('يوجد لدينا تشكيلة ضخمة من العبايات')
+      }else{
+        res.send('لم أفهم عليك')
       }
   });
 
