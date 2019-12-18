@@ -97,7 +97,9 @@ router.get('/', function (req, res, next) {
     }
     if (query.type === 'DeleteCat') {
       var o_id = new MongoClient.ObjectId(query.id)
+      console.log(o_id)
       var dselect = { _id: o_id }
+      console.log(dselect)
       console.log(clc.bgRedBright.bold("delete category working"));
       dbo.collection("categorys").deleteOne(dselect).toArray(function (err, res) {
         if (err) { console.log(clc.red.bold(err)) };
