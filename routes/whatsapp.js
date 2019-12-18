@@ -8,7 +8,7 @@ const response = new MessagingResponse();
 const message = response.message();
 
 router.post('/', function(req, res, next) {
-    console.log
+    console.log(req)
     message.body('Hello World!');
     response.redirect('https://timberwolf-mastiff-9776.twil.io/demo-reply');
   });
