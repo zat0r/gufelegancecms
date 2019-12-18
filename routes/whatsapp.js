@@ -6,8 +6,11 @@ const client = require('twilio')(accountSid, authToken);
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
 const response = new MessagingResponse();
 const message = response.message();
-message.body('Hello World!');
-response.redirect('https://timberwolf-mastiff-9776.twil.io/demo-reply');
+
+router.post('/', type, function(req, res, next) {
+    message.body('Hello World!');
+    response.redirect('https://timberwolf-mastiff-9776.twil.io/demo-reply');
+  });
 
 console.log(response.toString());
 /* GET WhatsApp listing. */
