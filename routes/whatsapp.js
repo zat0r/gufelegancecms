@@ -12,7 +12,12 @@ router.post('/', function(req, res, next) {
     }
     if (massage.text === 'عباية'){
         res.send('يوجد لدينا تشكيلة ضخمة من العبايات')
-      }else{
+    }
+    if (massage.text === 'طلب'){
+        res.send('ماهي طلباتك')
+    }
+      
+      else{
         res.send('لم أفهم عليك')
       }
   });
