@@ -102,7 +102,7 @@ router.get('/', function (req, res, next) {
       console.log(clc.bgRedBright.bold("delete category working"));
       dbo.collection("categorys").deleteOne(dselect, function (err, res) {
         if (err) { console.log(clc.red.bold(err)) };
-        console.log(clc.green("category Deleted: ") + clc.red(res)); Data(res); db.close();
+        console.log(clc.green("category Deleted: ") + clc.red(res.deletedCount)); Data(res.deletedCount); db.close();
       });
     }
 
