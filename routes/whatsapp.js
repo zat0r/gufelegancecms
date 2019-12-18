@@ -4,7 +4,7 @@ var request = require('request');
 
 
 router.post('/', function(req, res, next) {
-    var massage = JSON.parse(lolreq.body.messageobj)
+    var massage = JSON.parse(req.body.messageobj)
     console.log(massage.from);
     console.log(massage.text);
     if (massage.text === 'مرحبا'){
