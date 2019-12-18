@@ -95,3 +95,6 @@ function loading(msg, stat) {
         $("#supbutton").text(msg);
     }
 }
+if($('#catType_2').is(':checked')) {
+     console.log("it's checked");
+}
