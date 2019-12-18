@@ -4,9 +4,8 @@ var request = require('request');
 
 
 router.post('/', function(req, res, next) {
-    var massage = req.body.messageobj
-    console.log(massage.from);
-    console.log(massage.text);
+    var massage = req.body
+    console.log(massage);
     if (massage.text === 'مرحبا'){
       res.send('مرحبا بك في الرد الألي لأناقة الخليج ')
     }
