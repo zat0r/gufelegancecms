@@ -7,12 +7,11 @@ const MessagingResponse = require('twilio').twiml.MessagingResponse;
 const response = new MessagingResponse();
 const message = response.message();
 
-router.post('/', type, function(req, res, next) {
+router.post('/', function(req, res, next) {
+    console.log
     message.body('Hello World!');
     response.redirect('https://timberwolf-mastiff-9776.twil.io/demo-reply');
   });
-
-console.log(response.toString());
 /* GET WhatsApp listing. */
 router.get('/', function(req, res, next) {
     var query = req.query
