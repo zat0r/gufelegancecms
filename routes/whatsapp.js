@@ -21,7 +21,7 @@ var WAreq = http.request(conop, (res) => {
   });
 });
 
-req.on('error', (e) => {
+WAreq.on('error', (e) => {
   console.error(`problem with request: ${e.message}`);
 });
 
