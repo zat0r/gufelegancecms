@@ -49,6 +49,7 @@ router.get('/', function(req, res, next) {
     console.log(query);
     if (query.type === 'sendWAmassage'){
       WAreq('channel=whatsapp&source=917834811114&destination=962792880545&message=مرحبا')
+      res.send('worked')
     }
     else{res.send('lol')}
   });
