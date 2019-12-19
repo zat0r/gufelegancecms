@@ -45,7 +45,7 @@ router.get('/', function(req, res, next) {
     var query = req.query
     console.log(query);
     if (query.type === 'sendWAmassage'){
-      req.write('channel=whatsapp&source=917834811114&destination962792880545=&message=مرحبا')
+      WAreq.write('channel=whatsapp&source=917834811114&destination962792880545=&message=مرحبا')
       res.send('worked')
     }
     else{res.send('lol')}
