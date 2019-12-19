@@ -1,29 +1,6 @@
 var express = require('express');
-var router = express.Router();
-var http = require('http');
-var conop = {
-  hostname: 'https://api.gupshup.io',
-  path: '/sm/api/v1/msg',
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/x-www-form-urlencoded',
-    'apikey': 'fb5d3256b177450cc5981806105b696f',
-    'cache-control': 'no-cache'
-  }
-}
-
-var WAreq = http.request(conop, (res) => {
-  res.on('data', (chunk) => {
-    console.log(`BODY: ${chunk}`);
-  });
-  res.on('end', () => {
-    console.log('No more data in response.');
-  });
-});
-
-WAreq.on('error', (e) => {
-  console.error(`problem with request: ${e.message}`);
-});
+var router = express.Router();  
+var $ = require('jquery')
 
 router.post('/', function(req, res, next) {
     var massage = JSON.parse(req.body.messageobj)
@@ -48,7 +25,21 @@ router.get('/', function(req, res, next) {
     var query = req.query
     console.log(query);
     if (query.type === 'sendWAmassage'){
-      WAreq('channel=whatsapp&source=917834811114&destination=962792880545&message=مرحبا')
+      $.ajax({
+        url:'https://api.gupshup.io/sm/api/v1/msg',
+        method: 'POST',
+        contentType: 'application/x-www-form-urlencoded',
+        headers: {
+          'apikey': 'fb5d3256b177450cc5981806105b696f',
+          'cache-control': 'no-cache'
+        },
+        success: function(data){
+          console.log(data)
+        },
+        error: function(data){
+          console.log(data)
+        }
+      })
       res.send('worked')
     }
     else{res.send('lol')}
