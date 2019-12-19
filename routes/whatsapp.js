@@ -1,7 +1,29 @@
 var express = require('express');
 var router = express.Router();
-var request = require('request');
+var http = require('http');
+var conop = {
+  hostname: 'https://api.gupshup.io',
+  path: '/sm/api/v1/msg',
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'apikey': 'fb5d3256b177450cc5981806105b696f',
+    'cache-control': 'no-cache'
+  }
+}
 
+var WAreq = http.request(conop, (res) => {
+  res.on('data', (chunk) => {
+    console.log(`BODY: ${chunk}`);
+  });
+  res.on('end', () => {
+    console.log('No more data in response.');
+  });
+});
+
+req.on('error', (e) => {
+  console.error(`problem with request: ${e.message}`);
+});
 
 router.post('/', function(req, res, next) {
     var massage = JSON.parse(req.body.messageobj)
@@ -26,9 +48,9 @@ router.get('/', function(req, res, next) {
     var query = req.query
     console.log(query);
     if (query.type === 'sendWAmassage'){
-
+      WAreq('channel=whatsapp&source=917834811114&destination=962792880545&message=مرحبا')
     }
-      res.send('lol')
+    else{res.send('lol')}
   });
 
 module.exports = router;
