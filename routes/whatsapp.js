@@ -30,21 +30,19 @@ router.get('/', function(req, res, next) {
     var query = req.query
     console.log(query);
     if (query.type === 'sendWAmassage'){
-      WAreq()
+      const message = {
+        content: {
+          type: 'text',
+          text: 'مرحبا',
+        },
+      };
+      nexmo.channel.send(
+        { type: 'whatsapp', number: '962792880545' },
+        message,
+        (err, data) => { console.log(data); res.send(data)}
+      );
     }
     else{res.send('lol')}
   });
-function WAreq(){
-  const message = {
-    content: {
-      type: 'text',
-      text: 'مرحبا',
-    },
-  };
-  nexmo.channel.send(
-    { type: 'whatsapp', number: '962792880545' },
-    message,
-    (err, data) => { console.log(data); }
-  );
-}
+
 module.exports = router;
