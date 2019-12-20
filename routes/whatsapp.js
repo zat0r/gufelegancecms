@@ -29,7 +29,7 @@ router.get('/', function(req, res, next) {
     var query = req.query
     console.log(query);
     if (query.type === 'sendWAmassage'){
-     
+      WAreq('مرحبا', '962792880545')
     }
     else{res.send('lol')}
   });
