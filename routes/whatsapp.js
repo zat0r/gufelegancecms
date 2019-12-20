@@ -1,12 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-const Nexmo = require('nexmo');
-const nexmo = new Nexmo({
-  apiKey: 'a69c1769',
-  apiSecret: 'kPMKMukkXA4fimil',
-});
-
 router.post('/', function(req, res, next) {
     var massage = JSON.parse(req.body.messageobj)
     console.log(massage.from);
@@ -30,19 +24,8 @@ router.get('/', function(req, res, next) {
     var query = req.query
     console.log(query);
     if (query.type === 'sendWAmassage'){
-      const message = {
-        content: {
-          type: 'text',
-          text: 'مرحبا',
-        },
-      };
-      nexmo.channel.send(
-        { type: 'whatsapp', number: '962792880545' },
-        message,
-        (err, data) => { console.log(data); res.send(data)}
-      );
+      
     }
     else{res.send('lol')}
   });
-
 module.exports = router;
