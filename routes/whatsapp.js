@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+
 const Nexmo = require('nexmo');
 const nexmo = new Nexmo({
   apiKey: 'a69c1769',
@@ -29,19 +30,19 @@ router.get('/', function(req, res, next) {
     var query = req.query
     console.log(query);
     if (query.type === 'sendWAmassage'){
-      WAreq('مرحبا', '962792880545')
+      WAreq()
     }
     else{res.send('lol')}
   });
-function WAreq(text, number){
+function WAreq(){
   const message = {
     content: {
       type: 'text',
-      text: text,
+      text: 'مرحبا',
     },
   };
   nexmo.channel.send(
-    { type: 'whatsapp', number: number },
+    { type: 'whatsapp', number: '962792880545' },
     message,
     (err, data) => { console.log(data); }
   );
