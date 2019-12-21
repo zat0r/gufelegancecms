@@ -29,7 +29,7 @@ router.get('/', function(req, res, next) {
     var query = req.query
     console.log(query);
     if (query.type === 'sendWAmassage'){
-      WAreq.write({'channel': 'whatsapp', 'source': '917834811114', 'destination': '962792880545', 'message':'test'})
+      WAreq.write(JSON.stringify({'channel': 'whatsapp', 'source': '917834811114', 'destination': '962792880545', 'message':'test'}))
     }
     else{res.send('lol')}
   });
