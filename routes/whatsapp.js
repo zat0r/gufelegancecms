@@ -1,15 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var request = require('request')
-var options = {
-  method: 'POST',
-  url: 'https://api.gupshup.io/sm/api/v1/msg',
-  headers: {
-    'Cache-Control': 'no-cache',
-    'apikey': 'fb5d3256b177450cc5981806105b696f',
-    'content-type': 'application/x-www-form-urlencoded'
-  },
-}
 
 router.post('/', function(req, res, next) {
     var massage = JSON.parse(req.body.messageobj)
@@ -42,7 +33,7 @@ router.get('/', function(req, res, next) {
           'apikey': 'fb5d3256b177450cc5981806105b696f',
           'content-type': 'application/x-www-form-urlencoded'
         },
-        body: {channel: 'whatsapp', source: '917834811114', destination: '962792880545', message:'test'}
+        data: JSON.stringify({channel: 'whatsapp', source: '917834811114', destination: '962792880545', message:'test'})
       }
       request(options, function (error, response, body) {
         if (error) throw new Error(error);
