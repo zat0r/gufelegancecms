@@ -17,8 +17,13 @@ var WAreq = http.request(options, function (res) {
 	var chunks = [];
 
 	res.on("data", function (chunk) {
-		chunks.push(chunk);
+    chunks.push(chunk);
+  });
+  res.on("end", function () {
+		var body = Buffer.concat(chunks);
+		console.log(body.toString());
 	});
+});
 
 router.get('/', function(req, res, next) {
     var query = req.query
