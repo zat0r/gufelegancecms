@@ -3,8 +3,8 @@ var router = express.Router();
 var http = require("https");
 var options = {
 	"method": "POST",
-	"hostname": "api.gupshup.io",
-	"path": "/sm/api/v1/msg",
+	"hostname": "https://api.gupshup.io",
+	"path": "sm/api/v1/msg",
 	"headers": {
 		'Cache-Control': 'no-cache',
     'apikey': 'fb5d3256b177450cc5981806105b696f',
