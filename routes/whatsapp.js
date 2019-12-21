@@ -9,8 +9,14 @@ var headers = {
 };
 
 router.post('/', function(req, res, next) {
-  var query = req
+  var query = JSON.parse(req.body.messageobj)
   console.log(query)
+  if(query.text === 'lol') {
+    res.send('loool')
+  }
+  else{
+    res.send('لم أفهم عليك')
+  }
 })
 
 router.get('/', function(req, res, next) {
