@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "ajax-request": "^1.2.3",
     "cli-color": "^2.0.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
