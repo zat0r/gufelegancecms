@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var request = require('request');
 var fs = require('fs');
-let rawdata = fs.readFileSync('/wa.json');
+let rawdata = fs.readFileSync('./routes/wa.json');
 let WAData = JSON.parse(rawdata);
 var headers = {
   'Cache-Control': 'no-cache',
@@ -25,7 +25,7 @@ router.post('/', function (req, res, next) {
   if (old === false){
     res.send('مرحبا بك في أناقة الخليج .. كيف ممكن أن أساعدك')
     WAData += {Number: SN}
-    fs.writeFile('/wa.json', JSON.stringify(WAData), (err) => {
+    fs.writeFile('./routes/wa.json', JSON.stringify(WAData), (err) => {
       if (err) throw err;
       console.log('Data written to file');
   });
