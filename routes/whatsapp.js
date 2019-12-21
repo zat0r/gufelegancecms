@@ -11,7 +11,8 @@ var headers = {
 
 router.post('/', function(req, res, next) {
   var query = JSON.parse(req.body.messageobj)
-  console.log('messagefrom :' == query.from) 
+  console.log('messagefrom :' == query.from)
+  console.log('messagetext :' == query.text)
 
   if(query.text === 'lol') {
     res.send('loool')
@@ -25,13 +26,7 @@ router.get('/', function(req, res, next) {
     var query = req.query
     console.log(query);
     if (query.type === 'sendWAmassage'){
-      sendWA('962792880545','مرحبا/بك')
-    }
-    else{res.send('lol')}
-  });
-  
-  function sendWA(Num,Mes){
-    var dataString = 'channel=whatsapp&source=917834811114&destination=' + Num + '&message=' + Mes;
+      var dataString = 'channel=whatsapp&source=917834811114&destination=962792880545&message=إختبار';
     var options = {
       url: 'https://api.gupshup.io/sm/api/v1/msg',
       method: 'POST',
@@ -40,11 +35,14 @@ router.get('/', function(req, res, next) {
     };
 
     request(options, callback);
-  }
-  function callback(error, response, body) {
-    if (!error && response.statusCode == 200) {
-        console.log(body);
-        res.send(body)
     }
-  }
+    else{res.send('lol')}
+    function callback(error, response, body) {
+      if (!error && response.statusCode == 200) {
+          console.log(body);
+          res.send(body)
+      }
+    }
+  });
+  
 module.exports = router;
