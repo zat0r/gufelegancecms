@@ -33,7 +33,7 @@ router.get('/', function(req, res, next) {
           'apikey': 'fb5d3256b177450cc5981806105b696f',
           'content-type': 'application/x-www-form-urlencoded'
         },
-        body: JSON.stringify({channel: 'whatsapp', source: '917834811114', destination: '962792880545', message:'test'});
+        body: JSON.stringify({channel: 'whatsapp', source: '917834811114', destination: '962792880545', message:'test'})
       }
       request(options, function (error, response, body) {
         if (error) throw new Error(error);
