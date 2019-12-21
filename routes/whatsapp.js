@@ -11,8 +11,8 @@ var headers = {
 
 router.post('/', function(req, res, next) {
   var query = JSON.parse(req.body.messageobj)
-  console.log('messagefrom :' == query.from)
-  console.log('messagetext :' == query.text)
+  console.log('messagefrom :' + query.from)
+  console.log('messagetext :' + query.text)
 
   if(query.text === 'lol') {
     res.send('loool')
