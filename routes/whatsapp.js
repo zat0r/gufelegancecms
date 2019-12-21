@@ -25,7 +25,7 @@ router.post('/', function (req, res, next) {
   if (old === false){
     res.send('مرحبا بك في أناقة الخليج .. كيف ممكن أن أساعدك')
     WAData += {Number: SN}
-    fs.writeFile('student-3.json', JSON.stringify(WAData), (err) => {
+    fs.writeFile('WA.json', JSON.stringify(WAData), (err) => {
       if (err) throw err;
       console.log('Data written to file');
   });
