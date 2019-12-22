@@ -22,7 +22,7 @@ router.post('/', function (req, res, next) {
   var SN = query.from.replace('962', '0')
   console.log(clc.bgGreenBright('messagefrom: ') + SN)
   console.log(clc.bgBlue('messagetext: ') + query.text)
-  FirstMas(req, res, SN, query)
+  FirstMas(SN, query)
   if (query.text === 'lol') {
     res.send('loool')
   }else {
@@ -35,25 +35,12 @@ router.get('/', function (req, res, next) {
   var query = req.query
   console.log(query);
   if (query.type === 'sendWAmassage') {
-    var dataString = 'channel=whatsapp&source=917834811114&destination=962792880545&message=إختبار'
-    var options = {
-      url: 'https://api.gupshup.io/sm/api/v1/msg',
-      method: 'POST',
-      headers: headers,
-      body: dataString
-    };
-
-    request(options, callback);
+    sendWAMas(query.Number, query.message)
+    res.send('Massage sent')
   }
   else { res.send('lol') }
-  function callback(error, response, body) {
-    if (!error && response.statusCode == 200) {
-      console.log(body);
-      res.send(body)
-    }
-  }
 });
-function FirstMas(req, fres, Num, query){
+function FirstMas(Num, data){
 /* create conniction with Database. */
 MongoClient.connect(dbcon, mongOptions, function (err, db) {
   if (err) { console.log(clc.red.bold(err)) };
@@ -69,7 +56,7 @@ MongoClient.connect(dbcon, mongOptions, function (err, db) {
       }
     }
     if(Old === false){
-      fres.send('مرحبا بكم في أناقة الخليج.. معكم الرد الألي ')
+      sendWAMas(data.from, 'مرحبا بكم في أناقة الخليج.. معكم الرد الألي ')
       dbo.collection("WA").insertOne({Number: Num}, function (err, res) {
         if (err) { console.log(clc.red.bold(err)) };
         console.log(clc.green("WA Num Added : ") + clc.red(res.insertedId));
@@ -78,5 +65,23 @@ MongoClient.connect(dbcon, mongOptions, function (err, db) {
     db.close();
   });
 });
+}
+function sendWAMas(Num, message){
+  console.log(clc.bgBlue(Num))
+  console.log(clc.bgGreen(message))
+  var OrignalString = 'channel=whatsapp&source=917834811114&destination=THISNUM&message=THISMES'
+  var dataString = OrignalString.replace(/THISNUM/g, Num).replace(/THISMES/g, message)
+  var options = {
+    url: 'https://api.gupshup.io/sm/api/v1/msg',
+    method: 'POST',
+    headers: headers,
+    body: dataString
+  };
+
+  request(options, callback);
+  function callback(error, response, body) {
+    if (error){console.log(error)}
+      console.log(body);
+  }
 }
 module.exports = router;
