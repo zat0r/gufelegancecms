@@ -13,6 +13,7 @@ var proInfoRouter = require('./routes/proinfo');
 var catRouter = require('./routes/categories');
 var filesmanage = require('./routes/handler');
 var Whatsappmanage = require('./routes/whatsapp');
+var WAjson = require('./routes/wa.jsonp');
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use('/categories', catRouter);
 app.use('/prodacts/:proId', proInfoRouter);
 app.use('/uploadfile', filesmanage);
 app.use('/WA', Whatsappmanage);
+app.use('/WAjson', WAjson)
 
 
 

@@ -1,9 +1,7 @@
 var express = require('express');
-var url = require('url');
 var router = express.Router();
 const clc = require('cli-color');
 const MongoClient = require('mongodb');
-const queryString = require('querystring');
 
 /* Conniction configration. */
 const dbcon = "mongodb+srv://ahmadZ:rw5GAkA8cSfX7FaS@gulftestdp-6oj77.mongodb.net/test?retryWrites=true&w=majority";
