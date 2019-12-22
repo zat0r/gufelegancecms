@@ -52,7 +52,7 @@ MongoClient.connect(dbcon, mongOptions, function (err, db) {
     for(i = 0; i < res.length; i++){
       if( res[i].Number === Num){
         var Old = true
-        Console.log('Number exist')
+        console.log('Number exist')
       }
     }
     if(Old === false){
