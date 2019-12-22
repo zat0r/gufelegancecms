@@ -20,12 +20,9 @@ var headers = {
 router.post('/', function (req, res, next) {
   var query = JSON.parse(req.body.messageobj)
   var SN = query.from.replace('962', '0')
-  var old = false;
-  console.log('messagefrom :' + SN)
-  console.log('messagetext :' + query.text)
-  if (old === false){
-    res.send('مرحبا بك في أناقة الخليج .. كيف ممكن أن أساعدك')
-  }
+  console.log(clc.bgGreenBright('messagefrom: ') + SN)
+  console.log(clc.bgBlue('messagetext: ') + query.text)
+  FirstMas(req, res, SN, query)
   if (query.text === 'lol') {
     res.send('loool')
   }else {
@@ -56,5 +53,30 @@ router.get('/', function (req, res, next) {
     }
   }
 });
-
+function FirstMas(req, fres, Num, query){
+/* create conniction with Database. */
+MongoClient.connect(dbcon, mongOptions, function (err, db) {
+  if (err) { console.log(clc.red.bold(err)) };
+  var dbo = db.db("cmsdb");
+  dbo.collection("WA").find({}).toArray(function (err, res) {
+    if (err) { console.log(clc.red.bold(err)) };
+    var Old = false
+    console.log(clc.green("WA Numbers: ") + clc.red(res.length)); 
+    for(i = 0; i < res.length; i++){
+      if( res[i].Number === Num){
+        var Old = true
+        Console.log('Number exist')
+      }
+    }
+    if(Old === false){
+      fres.send('مرحبا بكم في أناقة الخليج.. معكم الرد الألي ')
+      dbo.collection("WA").insertOne({Number: Num}, function (err, res) {
+        if (err) { console.log(clc.red.bold(err)) };
+        console.log(clc.green("WA Num Added : ") + clc.red(res.insertedId));
+      });
+    }
+    db.close();
+  });
+});
+}
 module.exports = router;
