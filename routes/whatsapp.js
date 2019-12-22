@@ -38,7 +38,7 @@ router.get('/', function (req, res, next) {
   var query = req.query
   console.log(query);
   if (query.type === 'sendWAmassage') {
-    var dataString = {'channel': 'whatsapp', 'source':'917834811114', 'destination': '962792880545', 'message': 'إختبار'}
+    var dataString = 'channel=whatsapp&source=917834811114&destination=962792880545&message=إختبار'
     var options = {
       url: 'https://api.gupshup.io/sm/api/v1/msg',
       method: 'POST',
