@@ -23,12 +23,30 @@ router.post('/', function (req, res, next) {
   console.log(clc.bgGreenBright('messagefrom: ') + SN)
   console.log(clc.bgBlue('messagetext: ') + query.text)
   FirstMas(SN, query)
-  if (query.text === 'lol') {
-    res.send('loool')
-  }else {
-    res.send('لم أفهم عليك')
-  }
-  
+  MongoClient.connect(dbcon, mongOptions, function (err, db) {
+    if (err) { console.log(clc.red.bold(err)) };
+    var dbo = db.db("cmsdb");
+    dbo.collection("WAreplay").find({}).toArray(function (err, dres) {
+      if (err) { console.log(clc.red.bold(err)) };
+      console.log(clc.green("WA Replays: ") + clc.red(dres.length)); 
+      var noreplay = true;
+      for(i = 0; i < dres.length; i++){
+        if( dres[i].message === query.text){
+          res.send(dres[i].replay)
+          console.log('pc replay: ' + dres[i].replay)
+          var noreplay = false;
+          break
+        }
+      }
+      if (noreplay === true){
+        res.send('لم أفهم عليك')
+        dbo.collection("WADU").insertOne({Message: query.text}, function (err, res) {
+          if (err) { console.log(clc.red.bold(err)) };
+          console.log(clc.green("Massage Added : ") + clc.red(res.insertedId));
+        });
+      }
+    })
+  })
 })
 
 router.get('/', function (req, res, next) {
