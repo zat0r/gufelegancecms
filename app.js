@@ -13,7 +13,7 @@ var proInfoRouter = require('./routes/proinfo');
 var catRouter = require('./routes/categories');
 var filesmanage = require('./routes/handler');
 var Whatsappmanage = require('./routes/whatsapp');
-var WAjson = require('./routes/wa.json');
+var WAjson = require('./routes/wajson');
 
 var app = express();
 
