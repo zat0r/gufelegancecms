@@ -102,4 +102,4 @@ function sendWAMas(Num, message){
       console.log(body);
   }
 }
-module.exports = router;
+module.exports = {router, sendWAMas};
